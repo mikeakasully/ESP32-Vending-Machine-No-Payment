@@ -599,9 +599,7 @@ void showBootSplash() {
 }
 
 void showNormalScreen() {
-  String line2 = lang("Guth ", "Cred ") + formatCentsToMoney(creditCents);
-  lcdPrint2(lang("Automat bereit", "Machine ready"), line2);
-  lastDisplayedCreditCents = creditCents;
+  lcdPrint2("Machine Ready", "Enter Code");
 }
 
 void showServicePinScreen() {
@@ -3149,23 +3147,7 @@ bool vendProductByCode(char row, char numberKey) {
     return false;
   }
 
-  uint16_t priceCents = productShaftPriceCents[shaftIndex];
-  if (creditCents < priceCents) {
-    uint32_t missingCents = priceCents - creditCents;
-    if (isSumupConfigured() && wifiConnected) {
-      pendingCashlessSelection = true;
-      pendingCashlessShaftIndex = shaftIndex;
-      pendingProductSelectionMs = millis();
-      showPendingCashlessSelection();
-    } else {
-      showTemporaryMessage(lang("Fehlt:", "Missing:"), formatCentsToMoney(missingCents), 5000);
-      showNormalScreen();
-    }
-    return false;
-  }
-
-  return vendProductAtIndex(shaftIndex, lang("Muenzen", "Coins"));
-}
+  return vendProductAtIndex(shaftIndex, "FREE");
 
 bool vendProductAtIndex(int shaftIndex, const String& paymentMethod) {
   if (shaftIndex < 0 || shaftIndex >= productShaftCount) {
@@ -3188,12 +3170,6 @@ bool vendProductAtIndex(int shaftIndex, const String& paymentMethod) {
                 paymentMethod.c_str());
 
   uint16_t priceCents = productShaftPriceCents[shaftIndex];
-  if (creditCents < priceCents) {
-    uint32_t missingCents = priceCents - creditCents;
-    showTemporaryMessage(lang("Fehlt:", "Missing:"), formatCentsToMoney(missingCents), 3000);
-    showNormalScreen();
-    return false;
-  }
 
   lcdPrint2(lang("Ausgabe ", "Dispense ") + getProductShaftCode(shaftIndex),
             formatCentsToMoney(priceCents));
@@ -3213,7 +3189,7 @@ bool vendProductAtIndex(int shaftIndex, const String& paymentMethod) {
   if (!appendCashbookEntry(displayName, priceCents, paymentMethod)) {
     Serial.println("Kassenbuch: Verkauf konnte nicht auf SD protokolliert werden");
   }
-  creditCents -= priceCents;
+  creditCents = 0;
   lastShaftActionMessage = getProductShaftLabel(shaftIndex) + ": " +
                            displayName + ", " +
                            lang("Bestand jetzt ", "stock now ") +
@@ -5648,7 +5624,7 @@ void handleNormalModeKey(char key) {
     return;
   }
 
-  if (key == 'A') {
+  if (false && key == 'A') {
     if (pendingSumupTopupSelection) {
       uint32_t amountEuros = pendingSumupTopupInput.toInt();
       uint32_t amountCents = amountEuros * 100UL;
@@ -6406,7 +6382,7 @@ void setup() {
   }
 
   logBootStep("GPIO init start");
-  pinMode(coinPulsePin, INPUT_PULLUP);
+  // pinMode(coinPulsePin, INPUT_PULLUP);
   setupMotorControllerBus();
   logBootStep("GPIO init ok");
   logBootStep("SD init start");
@@ -6463,9 +6439,9 @@ void setup() {
 }
 
 void loop() {
-  processMotorControllerBus();
-  processCoinSignal();
-  pollSumupPaymentStatus();
+  // processMotorControllerBus();
+  // processCoinSignal();
+  // pollSumupPaymentStatus();
 
   if (wifiConnectPending) {
     wifiConnectPending = false;
