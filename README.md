@@ -1,7 +1,8 @@
-# Vending Machine Firmware (ESP32-S3)
+# Vending Machine Firmware (ESP32-S3) - No Pay Version
 
 ![Vending Machine](images/vending1.png)
 
+This is a fork of https://github.com/kreativwelt3d/ESP32-Vending-Machine minus the card payments and coin acceptor
 
 Current firmware version in code: `1.7.0`
 
@@ -36,7 +37,7 @@ Special thanks go to Martin on MakerWorld, the main creator of the original buil
 
 ### Overview
 
-This firmware controls the main ESP of the vending machine. The ESP32-S3 handles the display, keypad, coin acceptor, SD card, Wi-Fi/web interface, and communication with the separate motor ESP.
+This firmware controls the main ESP of the vending machine. The ESP32-S3 handles the display, keypad, SD card, Wi-Fi/web interface, and communication with the separate motor ESP.
 
 3D printing files and notes about the available modifications can be found in [3DPrinting files/README.md](3DPrinting%20files/README.md).
 
@@ -75,7 +76,6 @@ GPIOs currently used by the firmware:
 | Keypad | Col 2 | `15` |
 | Keypad | Col 3 | `16` |
 | Keypad | Col 4 | `17` |
-| Coin acceptor | Pulse input | `18` |
 | Motor ESP UART | TX from main ESP | `4` |
 | Motor ESP UART | RX to main ESP | `5` |
 | SD card SPI | SCK / CLK | `39` |
@@ -192,66 +192,10 @@ Main sections:
 - Overview
 - WiFi
 - Email
-- SumUp
 - Coins
 - Shafts
-- Cashbook
 - Tests
 
-#### SumUp configuration
-
-The `SumUp` tab contains the parameters for card payments:
-
-- `Active`
-- `Server base URL`
-- `Bearer token`
-- `Machine ID`
-- `Currency`
-- `Polling interval`
-- `Timeout`
-
-Example base URL:
-
-```text
-https://sumup.kreativwelt3d.de/sumup/public
-```
-
-#### SumUp API Bridge
-
-If you do not want to build and host your own SumUp API bridge, you can use the SumUp API bridge on my website:
-
-- https://sumup.kreativwelt3d.de/
-
-This service costs `EUR 5 per month` and can be booked via Stripe after signing up on the website if you do not want to run your own bridge.
-
-This helps fund the project, and I really appreciate everyone who supports it by subscribing to the service.
-
-The service can be used to connect an unlimited number of SumUp terminals.
-
-![SumUp API Bridge](images/apibridge2.png)
-
-#### Product and card payment flow
-
-Product selection on the 4x4 keypad is a two-step process:
-
-- first `row 1-6`
-- then `slot 1-8`
-
-Example:
-
-- `1` then `2` = row 1, slot 2
-
-If enough credit is available:
-
-- The product is dispensed immediately.
-
-If there is not enough credit and SumUp is configured correctly:
-
-- the LCD shows `Kartenzahlung->A`
-- pressing `A` starts card payment for exactly that item
-- the LCD then shows `Terminal beachten`
-- after a successful transaction, the product is dispensed automatically
-- no product is dispensed if the payment fails or is cancelled
 
 ### Persistent settings
 
@@ -272,13 +216,9 @@ Stored values include:
 
 1. Use board `esp32-s3-devkitc-1-n16r8` in PlatformIO.
 2. Build with `platformio run`.
-3. For the ESP Web Tool, do not use the merged image `firmware-merged.bin`; use the four separate files from `.pio/build/esp32-s3-devkitc-1/` instead.
-4. In the ESP Web Tool, connect with `460800` baud and set `Flash Mode = DIO`, `Flash Frequency = 40m`, and `Flash Size = 16MB`.
-5. Flash the files with these offsets: `bootloader.bin -> 0x0`, `partitions.bin -> 0x8000`, `boot_app0.bin -> 0xE000`, `firmware.bin -> 0x10000`.
-6. Open the serial monitor at `115200` baud.
-7. Run the LCD keypad setup on first boot if needed.
-8. Check SD card and Wi-Fi.
-9. Use the service menu and web UI for further configuration.
+3. Run the LCD keypad setup on first boot if needed.
+4. Check SD card and Wi-Fi.
+5. Use the service menu and web UI for further configuration.
 
 ### Troubleshooting
 
