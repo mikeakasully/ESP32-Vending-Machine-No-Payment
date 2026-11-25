@@ -46,15 +46,12 @@ This firmware controls the main ESP of the vending machine. The ESP32-S3 handles
 - 4x4 keypad for normal operation and service menu
 - 16x2 LCD via I2C
 - Initial and service keypad setup for key mapping
-- Coin acceptor with configurable pulse/value mappings
-- SD card support for the cashbook
+- SD card support
 - Wi-Fi configuration
 - Web server for configuration and status pages
 - UART communication with a separate motor ESP
 - Control of up to 24 motors through the separate motor ESP
 - Persistent storage via Preferences (NVS)
-- SumUp integration for card payments
-- Automatic creation of flash files for `esptool` and ESP Web Tool
 
 ### Hardware and wiring
 
