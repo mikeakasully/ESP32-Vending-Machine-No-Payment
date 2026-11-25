@@ -12,8 +12,9 @@ Note:
 
 | Part | Qty | Description | Usage | Purchase link |
 |------|-----|-------------|-------|---------------|
-| ESP32-S3 dev board for main controller | 1 | Main controller for display, web interface, Wi-Fi, SD card | Main ESP | https://link.amazon/B0gs0TD5C |
-| ESP32-S3 dev board for motor controller | 1 | Separate controller for motors and the magnetic lock | https://link.amazon/B07McVSgU |
+| ESP32-S3 dev board for main controller and motor | 1 | Main controller for display, web interface, Wi-Fi, SD card | Main ESP | https://link.amazon/B0gs0TD5C |
+| ESP32-S3 dev board for motor controller | 1 | Separate controller for motors and the magnetic lock | Motor ESP | https://link.amazon/B0gs0TD5C |
+| ESP32-S3 Breakout boards | 2 | Breakout boards for the ESP32-S3 dev boards | ESP Breakouts | https://link.amazon/B07McVSgU |
 | 16x2 LCD with I2C backpack | 1 | Display for menus, status information and user interaction | User interface | https://link.amazon/B0hvaPlxV |
 | 4x4 matrix keypad | 1 | Input device for selection and service menu | User interface | https://link.amazon/B0b4QXf8h |
 | Electronic coin acceptor | 1 | Outputs pulses for detected coins | Payment module | https://link.amazon/B0ggt944e |
