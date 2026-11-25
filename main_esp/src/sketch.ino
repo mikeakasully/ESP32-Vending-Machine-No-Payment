@@ -6503,7 +6503,7 @@ void loop() {
 
   ensureWifiConnection();
   // processCoinPulseBurst();
-  refreshNormalScreenIfNeeded();
+  // refreshNormalScreenIfNeeded();
 
   if (webServerStarted && !wifiConnected) {
     server.stop();
