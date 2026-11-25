@@ -18,7 +18,7 @@ Note:
 | 16x2 LCD with I2C backpack | 1 | Display for menus, status information and user interaction | User interface | https://link.amazon/B0hvaPlxV |
 | 4x4 matrix keypad | 1 | Input device for selection and service menu | User interface | https://link.amazon/B0b4QXf8h |
 | Electronic coin acceptor | 1 | Outputs pulses for detected coins | Payment module | https://link.amazon/B0ggt944e |
-| MicroSD card | 1 | Storage for the cashbook and related data | Storage | Any SD card up to `16 GB` works. | https://link.amazon/B0ctLUgAI |
+| MicroSD card | 1 | Storage for the cashbook and related data | Storage | Any SD card up to `16 GB` works. https://link.amazon/B0ctLUgAI |
 | MicroSD card module or integrated SD connector | 1 | SPI connection for the SD card on the main ESP | Storage interface | https://link.amazon/B0bFH1ZQA |
 | DRV8825 stepper drivers | 12 | Drivers for the individual dispensing motors | Motor control | https://link.amazon/B0j6hwp9J |
 | Stepper driver expansion board | 12 | Used to plug in and wire the DRV8825 drivers. Buy the version with the black PCB. | Motor control | https://link.amazon/B0iwVXqZu |
