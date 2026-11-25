@@ -3148,6 +3148,7 @@ bool vendProductByCode(char row, char numberKey) {
   }
 
   return vendProductAtIndex(shaftIndex, "FREE");
+  }
 
 bool vendProductAtIndex(int shaftIndex, const String& paymentMethod) {
   if (shaftIndex < 0 || shaftIndex >= productShaftCount) {
@@ -3171,8 +3172,8 @@ bool vendProductAtIndex(int shaftIndex, const String& paymentMethod) {
 
   uint16_t priceCents = productShaftPriceCents[shaftIndex];
 
-  lcdPrint2(lang("Ausgabe ", "Dispense ") + getProductShaftCode(shaftIndex),
-            formatCentsToMoney(priceCents));
+  lcdPrint2(lang("Ausgabe ", "Dispense "), getProductShaftCode(shaftIndex),
+  
   delay(300);
 
   if (!runProductShaftEject(shaftIndex, getConfiguredProductShaftEjectSteps(), productShaftManualEjectPulseUs)) {
@@ -6439,7 +6440,7 @@ void setup() {
 }
 
 void loop() {
-  // processMotorControllerBus();
+  processMotorControllerBus();
   // processCoinSignal();
   // pollSumupPaymentStatus();
 
@@ -6501,7 +6502,7 @@ void loop() {
   }
 
   ensureWifiConnection();
-  processCoinPulseBurst();
+  // processCoinPulseBurst();
   refreshNormalScreenIfNeeded();
 
   if (webServerStarted && !wifiConnected) {
