@@ -3611,7 +3611,7 @@ bool installFirmwareUpdate(const FirmwareUpdateInfo& info) {
     }
 
     if (info.sha256.length() > 0) {
-      if (mbedtls_sha256_starts_ret(&shaContext, 0) != 0) {
+      if (mbedtls_sha256_starts(&shaContext, 0) != 0) {
         failureMessage = lang("SHA-256 Pruefung konnte nicht gestartet werden.", "SHA-256 check could not be started.");
         break;
       }
@@ -3651,7 +3651,7 @@ bool installFirmwareUpdate(const FirmwareUpdateInfo& info) {
           break;
         }
 
-        if (shaStarted && mbedtls_sha256_update_ret(&shaContext, buffer, readBytes) != 0) {
+        if (shaStarted && mbedtls_sha256_update(&shaContext, buffer, readBytes) != 0) {
           failureMessage = lang("SHA-256 Pruefung fehlgeschlagen.", "SHA-256 check failed.");
           failureDetail = lang("Hash konnte nicht berechnet werden.", "Hash could not be calculated.");
           break;
@@ -3694,7 +3694,7 @@ bool installFirmwareUpdate(const FirmwareUpdateInfo& info) {
 
     if (shaStarted) {
       uint8_t shaResult[32];
-      if (mbedtls_sha256_finish_ret(&shaContext, shaResult) != 0) {
+      if (mbedtls_sha256_finish(&shaContext, shaResult) != 0) {
         failureMessage = lang("SHA-256 Pruefung fehlgeschlagen.", "SHA-256 check failed.");
         failureDetail = lang("Hash konnte nicht beendet werden.", "Hash could not be finished.");
         break;

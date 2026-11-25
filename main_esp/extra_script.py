@@ -72,7 +72,7 @@ def merge_bin(source, target, env):
     firmware = os.path.join(build_dir, "firmware.bin")
     output = os.path.join(build_dir, "firmware-merged.bin")
 
-    esptool_pkg_dir = env.PioPlatform().get_package_dir("tool-esptoolpy")
+    esptool_pkg_dir = env.PioPlatform().get_package_dir("tool-esptool")
     framework_dir = env.PioPlatform().get_package_dir("framework-arduinoespressif32")
 
     if not esptool_pkg_dir:

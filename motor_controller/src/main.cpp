@@ -436,7 +436,13 @@ void setup() {
   Serial.println();
   Serial.println("Motor ESP boot");
 
-  esp_task_wdt_init(kTaskWatchdogTimeoutSec, true);
+  esp_task_wdt_config_t wdt_config = {
+    .timeout_ms = kTaskWatchdogTimeoutSec * 1000,
+    .idle_core_mask = (1 << portNUM_PROCESSORS) - 1,
+    .trigger_panic = true,
+};
+
+esp_task_wdt_init(&wdt_config);
   esp_task_wdt_add(nullptr);
   serviceWatchdog();
 
