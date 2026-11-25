@@ -24,9 +24,9 @@ Note:
 | Stepper driver expansion board | 12 | Used to plug in and wire the DRV8825 drivers. Buy the version with the black PCB. | Motor control | https://link.amazon/B0iwVXqZu |
 | Stepper motors | 12 | Motors used for product dispensing | Dispensing mechanism | https://www.alibaba.com/product-detail/Pancake-Nema-17-Stepper-Motor-42x42x23mm_10000050970719.html |
 | Magnetic lock / solenoid lock | 1 | Electric lock for the door | Lock | https://link.amazon/B0f3G3hGe |
-| 12V power supply, at least 4A | 1 | Power supply for motors and other higher-power loads | Power | Please choose a high-quality power supply with a barrel plug. | https://link.amazon/B04GcMlas |
+| 12V power supply, at least 4A | 1 | Power supply for motors and other higher-power loads | Power | https://link.amazon/B04GcMlas |
 | 12V relay module | 1 | Switches power to the magnetic lock when needed | Power | https://link.amazon/B01I1lJWJ |
-| Wiring, Dupont cables, terminal blocks | as needed | Wiring for all components | Cabling | https://link.amazon/B0f3G3hGe | https://link.amazon/B0g9KCjcW | https://link.amazon/B04GcMlas |
+| Wiring, Dupont cables, terminal blocks | as needed | Wiring for all components | Cabling | https://link.amazon/B0f3G3hGe https://link.amazon/B0g9KCjcW https://link.amazon/B04GcMlas |
 
 
 ### Notes
