@@ -2,39 +2,37 @@
 
 ![Vending Machine](images/vending1.png)
 
-- [English](#english)
 
 Current firmware version in code: `1.7.0`
 
 Ready-to-flash firmware releases are available here:
 
-Quick flash guide:
+##FLASHING:
+Build from source
 
-1. For the [ESP Web Tool](https://espressif.github.io/esptool-js/), always use all four files: `bootloader.bin`, `partitions.bin`, `boot_app0.bin`, and `firmware.bin`.
-2. Connect the ESP32-S3 via USB.
-3. In the ESP Web Tool, connect with `460800` baud and set `Flash Mode = DIO`, `Flash Frequency = 40m`, and `Flash Size = 16MB`.
-4. Flash the files with these offsets: `bootloader.bin -> 0x0`, `partitions.bin -> 0x8000`, `boot_app0.bin -> 0xE000`, `firmware.bin -> 0x10000`.
-5. Reboot the ESP and complete the initial setup shown on the LCD.
+Requirements:
 
-![Flashing instructions](images/flashing_instructions.png)
+VS Code
+PlatformIO IDE extension
+
+#Main Controller:
+
+cd main_esp
+pio run
+pio run --target upload
+
+#Motor Board:
+
+cd motor_controller
+pio run
+pio run --target upload
+
 
 ### Preface
 
 Special thanks go to Martin on MakerWorld, the main creator of the original build, for creating the foundation of this project and for providing the 3D printing files of the original project:
 
 - https://makerworld.com/de/models/2380835-full-size-modular-vending-machine#profileId-2607127
-
-In addition, a TikTok video series documents the complete build of this project the Series is held upon in German.Maybe i can add some english voiceover later on:
-
-Videoseries "We print an vending machine":
-- Series start part 1: https://www.tiktok.com/@flo3137/video/7620130653631188246
-- Aliexpress delivered + Unboxing part 2: https://www.tiktok.com/@flo3137/video/7622039398799904022
-- Main build of the vendingmachine part 3: https://www.tiktok.com/@flo3137/video/7624063139864202518
-- Electronics part 4: https://www.tiktok.com/@flo3137/video/7625582070978628867
-- SumUP Mod + Final part: https://www.tiktok.com/@flo3137/video/7629085141201227031
-
-Extra Videos:
-- BL616 Coin acceptor Setup: https://www.tiktok.com/@flo3137/video/7628382295723887894
 
 ### Overview
 
