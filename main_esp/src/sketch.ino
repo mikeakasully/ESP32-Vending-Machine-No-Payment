@@ -3172,7 +3172,7 @@ bool vendProductAtIndex(int shaftIndex, const String& paymentMethod) {
 
   uint16_t priceCents = productShaftPriceCents[shaftIndex];
 
-  lcdPrint2(lang("Ausgabe ", "Dispense "), getProductShaftCode(shaftIndex),
+  lcdPrint2(lang("Ausgabe ", "Dispense "), getProductShaftCode(shaftIndex));
   
   delay(300);
 
