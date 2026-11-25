@@ -26,7 +26,7 @@ Note:
 | Magnetic lock / solenoid lock | 1 | Electric lock for the door | Lock | https://link.amazon/B0f3G3hGe |
 | 12V power supply, at least 4A | 1 | Power supply for motors and other higher-power loads | Power | https://link.amazon/B04GcMlas |
 | 12V relay module | 1 | Switches power to the magnetic lock when needed | Power | https://link.amazon/B01I1lJWJ |
-| Wiring, Dupont cables, terminal blocks | as needed | Wiring for all components | Cabling | https://link.amazon/B0f3G3hGe https://link.amazon/B0g9KCjcW https://link.amazon/B04GcMlas |
+| Wiring, Dupont cables, terminal blocks | as needed | Wiring for all components | Cabling | https://link.amazon/B0atjSjRh https://link.amazon/B0g9KCjcW https://link.amazon/B04GcMlas |
 
 
 ### Notes
